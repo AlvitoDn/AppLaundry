@@ -35,6 +35,7 @@ class Pelanggan extends Controller{
     public function delete($id)
     {
         $this->pelanggans->delete($id);
+        session()->setFlashdata('message','Data pelanggan berhasil di hapus');
         return redirect('pelanggan');
     }
 
@@ -43,6 +44,7 @@ class Pelanggan extends Controller{
         $data = array('nama'=>$this->request->getPost('nama'),'alamat'=>$this->request->getPost('alamat'),'no_hp'=>$this->request->getPost('no_hp')
         );
         $this->pelanggans->update($id, $data);
+        session()->setFlashdata('message','Data pelanggan berhasil di edit');
         return redirect('pelanggan')->with('Sukses nihh!!!','update berhasil');
     }
 }

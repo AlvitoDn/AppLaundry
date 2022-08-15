@@ -37,33 +37,40 @@
 <div class="modal fade" id="ModalEdit" tab-index="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5>Edit Pelanggan</h5>
-                <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="form" action="" method="post">
-                    <div class="form-group">
-                            <label for="nama" class="form-label">Nama</label>
-                            <input type="text" name="nama" id="nama" class="form-control">
-                        </div>
+            <form id="form" action="" method="post">
+                <div class="modal-header">
+                    <h5>Edit Pelanggan</h5>
+                    <button class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
+                </div>
+                <div class="modal-body">
                         <div class="form-group">
-                            <label for="alamat" class="form-label">Alamat</label>
-                            <input type="text" name="alamat" id="alamat" class="form-control">
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" name="nama" id="nama" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat" class="form-label">Alamat</label>
+                                <input type="text" name="alamat" id="alamat" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="no_hp" class="form-label">No_HP</label>
+                                <input type="number" name="no_hp" id="no_hp" class="form-control">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="no_hp" class="form-label">No_HP</label>
-                            <input type="number" name="no_hp" id="no_hp" class="form-control">
-                        </div>
-                    </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Simpan</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
             </form>
         </div>
     </div>
 </div>
+<?php if(!empty(session()->getFlashdata('message'))) : ?>
+
+    <div class="alert alert-success">
+        <?php echo session()->getFlashdata('message');?>
+    </div>
+    
+<?php endif ?>
 <?=$this->endSection()?>
 <?=$this->section("script")?>
     <script>
