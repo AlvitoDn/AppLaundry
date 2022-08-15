@@ -10,5 +10,10 @@ class Paket extends Controller{
     {
         $this->paket = new PaketModel();
     }
+    
+    public function tampil()
+    {
+        return view('tampil_paket');
+    }
 
 }

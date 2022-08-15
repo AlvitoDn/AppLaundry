@@ -37,6 +37,7 @@ $routes->get('/form', 'Pelanggan::form');
 $routes->add('/spelanggan', 'Pelanggan::save');
 $routes->get('/pelanggan/delete/(:segment)', 'Pelanggan::delete/$1');
 $routes->add('/pelanggan/edit/(:segment)', 'Pelanggan::edit/$1');
+$routes->get('/paket', 'Paket::tampil');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
