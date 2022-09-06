@@ -18,10 +18,10 @@
             <div class="collapse navbar-collapse" id="navbara">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">HOME</a>
+                        <a href="/Home" class="nav-link active">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link active">DAFTAR</a>
+                        <a href="/" class="nav-link active">DAFTAR</a>
                     </li>
                 </ul>
             </div>

@@ -17,7 +17,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('LoginController');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -31,13 +31,35 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+
+// Routes For Login & Logout
+$routes->get('/login', 'LoginController::index');
+$routes->add('plogin', 'LoginController::login');
+$routes->get('/logout', 'LoginController::logout');
+
+// Routes for Home
+$routes->get('/home','Home::index');
+
+// Routes for Pelanggan 
 $routes->get('/pelanggan', 'Pelanggan::tampil');
 $routes->get('/form', 'Pelanggan::form');
 $routes->add('/spelanggan', 'Pelanggan::save');
 $routes->get('/pelanggan/delete/(:segment)', 'Pelanggan::delete/$1');
 $routes->add('/pelanggan/edit/(:segment)', 'Pelanggan::edit/$1');
+
+// Routes for Paket 
 $routes->get('/paket', 'Paket::tampil');
+$routes->get('/fpaket', 'Paket::form');
+$routes->get('/paket/delete/(:segment)', 'Paket::delete/$1');
+$routes->add('/paket/edit/(:segment)', 'Paket::edit/$1');
+$routes->add('/spaket', 'Paket::save');
+
+// Routes for User
+$routes->get('/user', 'User::tampil');
+$routes->get('/fuser', 'User::form');
+$routes->get('/user/delete/(:segment)', 'User::delete/$1');
+$routes->add('/user/edit/(:segment)', 'User::edit/$1');
+$routes->add('/suser', 'User::save');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

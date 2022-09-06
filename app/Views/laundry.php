@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <title>Laundry</title>
+    <link rel="stylesheet" href="<?=base_url()?>/assets/css/bootstrap.min.css">
+    <title>Welcome To SlebewLaundry</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -18,9 +18,6 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#" style="color: white;">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about/" style="color: white;">About</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
@@ -40,6 +37,6 @@
           </div>
         </div>
     </nav>
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="<?=base_url()?>/assets/js/bootstrap.min.js"></script>
 </body>
 </html>
