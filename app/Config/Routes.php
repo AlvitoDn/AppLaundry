@@ -60,6 +60,9 @@ $routes->get('/fuser', 'User::form');
 $routes->get('/user/delete/(:segment)', 'User::delete/$1');
 $routes->add('/user/edit/(:segment)', 'User::edit/$1');
 $routes->add('/suser', 'User::save');
+
+// Routes for Transaksi
+$routes->get('/transaksi','Transaksi::tampil');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
