@@ -31,4 +31,41 @@ class Transaksi extends Controller{
         return view('tampil_transaksi',$data);
     }
 
+    private function cek($id)
+    {
+        $cart = array_values(session('cart'));
+        for($i=0;$i<count(session('cart'));$i++){
+            if ($cart[$i]['id_paket']==$id){
+                return $i;
+            }
+        }
+        return -1;
+    }
+
+    public function addcart()
+    {
+        $id = $this->request->getPost('paket');
+        $jumlah = $this->request->getPost('jumlah');
+        $paket = $this->pakets->find($id);
+        $isi = array(
+            "id_paket" => $id,
+            "nama_paket"=> $paket['nama_paket'],
+            "harga"=> $paket['harga'],
+            "jumlah"=> $jumlah
+        );
+        if($this->session->has('cart')){
+            $index = $this->cek($id);
+            $cart = array_values(session('cart'));
+            if ($index == -1){
+                array_push($cart,$isi);
+            }else{
+                $cart[$index]['jumlah'] += $jumlah;
+            }
+            $this->session->set('cart',$cart);
+        }else{
+            $this->session->set('cart',array($isi));
+        }
+        return redirect('transaksi')->with('sukses','databerhasil ditambahkan');
+    }
+    
 }

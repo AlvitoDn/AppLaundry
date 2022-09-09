@@ -24,13 +24,55 @@ Transaksi
                                 ?>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="jumlah">Jumlah</label>
+                            <input type="number" name="jumlah" id="jumlah" class="form-control">
+                        </div>
+                        <div class="form-group mt-4">
+                            <button class="btn btn-primary" type="submit">Tambah</button>
+                            <button type="reset" class="btn btn-secondary mx-3">Reset</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
         <div class="col-md-5">
             <!-- Tampil data -->
-
+            <div class="card">
+                <div class="card-header">Data Pesanan</div>
+                <div class="card-body">
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th>No.</th>
+                            <th>Paket</th>
+                            <th>Harga</th>
+                            <th>Jumlah</th>
+                            <th>Sub Total</th>
+                            <th>Opsi</th>
+                        </tr>
+                        <?php
+                            if($trans != null){
+                                $no=0;
+                                foreach($trans as $val){
+                                    $no++;
+                                    ?>
+                                <tr>
+                                    <td><?=$no?></td>
+                                    <td><?=$val['nama_paket']?></td>
+                                    <td><?=$val['harga']?></td>
+                                    <td><?=$val['jumlah']?></td>
+                                    <td><?=$val['harga']*$val['jumlah']?></td>
+                                    <td>
+                                        <a href="transaksi/hapus/<?=$val['id_paket']?>" class="btn btn-danger" onclick="return ('yakin mau dihapus nihhh???')">Hapus</a>
+                                    </td>
+                                </tr>
+                                    <?php
+                                }
+                            }    
+                        ?>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </div>
