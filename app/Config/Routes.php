@@ -64,6 +64,7 @@ $routes->add('/suser', 'User::save');
 // Routes for Transaksi
 $routes->get('/transaksi','Transaksi::tampil');
 $routes->add('/addcart','Transaksi::addcart');
+$routes->get('/transaksi/hapus/(:segment)','Transaksi::hapusCart/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

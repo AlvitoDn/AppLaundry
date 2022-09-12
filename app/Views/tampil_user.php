@@ -60,6 +60,7 @@
                             <div class="form-group">
                                 <label for="hak_akses" class="form-label">Hak Akses</label><br>
                                 <select name="hak_akses" id="hak_akses">
+                                    <option value="">Pilih Hak Akses</option>
                                     <option value="ADMIN">ADMIN</option>
                                     <option value="KASIR">KASIR</option>
                                 </select>

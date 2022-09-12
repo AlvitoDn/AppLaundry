@@ -68,6 +68,32 @@ Transaksi
                                 </tr>
                                     <?php
                                 }
+                                ?>
+                                <form action="#" method="post">
+                                    <tr>
+                                        <td colspan="6">
+                                            <div class="form-group">
+                                                <label for="pelanggan">Pelanggan</label>
+                                                <select name="pelanggan" id="pelanggan" class="form-control">
+                                                    <option value="">Pilih Pelanggan</option>
+                                                    <?php
+                                                        foreach ($pelanggan as $keyp => $valp) {
+                                                        ?>
+                                                        <option value="<?=$valp['id_pelanggan']?>"><?=$valp['nama']?></option>
+                                                        <?php
+                                                    }
+                                                ?>
+                                                </select>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6">
+                                            <a href="#" class="btn btn-primary">Simpan</a>
+                                        </td>
+                                    </tr>
+                                </form>
+                            <?php
                             }    
                         ?>
                     </table>
@@ -75,5 +101,10 @@ Transaksi
             </div>
         </div>
     </div>
+    <?php if(!empty(session()->getFlashdata('sukses'))) : ?>
+        <div class="alert alert-success">
+            <?php echo session()->getFlashdata('sukses');?>
+        </div>
+    <?php endif?>
 </div>
 <?=$this->endSection()?>

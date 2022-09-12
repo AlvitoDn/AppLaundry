@@ -11,7 +11,7 @@
     <!-- NAVBAR START -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a href="" class="navbar-brand">Slebew laundry</a>
+            <a href="/home" class="navbar-brand">Slebew laundry</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbara" aria-controls="navbarSupportedContent" aria-expand="false">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -32,7 +32,7 @@
     <!-- MENU START -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 bg-primary">
+            <div class="col-md-2 bg-secondary">
                 <?=$this->include('component/sidebar.php') ?>
             </div>     
             <div class="col-md-10">
