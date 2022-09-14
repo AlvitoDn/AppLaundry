@@ -8,7 +8,7 @@ Transaksi
         <div class="col-md-5">
             <!-- Form Input -->
             <div class="card">
-                <div class="card-header">Input data</div>
+                <div class="card-header bg-info">Input data</div>
                 <div class="card-body">
                     <form action="/addcart" method="post">
                         <div class="form-group">
@@ -39,7 +39,7 @@ Transaksi
         <div class="col-md-5">
             <!-- Tampil data -->
             <div class="card">
-                <div class="card-header">Data Pesanan</div>
+                <div class="card-header bg-info">Data Pesanan</div>
                 <div class="card-body">
                     <table class="table table-bordered table-striped">
                         <tr>
@@ -66,37 +66,39 @@ Transaksi
                                         <a href="transaksi/hapus/<?=$val['id_paket']?>" class="btn btn-danger" onclick="return ('yakin mau dihapus nihhh???')">Hapus</a>
                                     </td>
                                 </tr>
-                                    <?php
-                                }
-                                ?>
-                                <form action="#" method="post">
-                                    <tr>
-                                        <td colspan="6">
-                                            <div class="form-group">
-                                                <label for="pelanggan">Pelanggan</label>
-                                                <select name="pelanggan" id="pelanggan" class="form-control">
-                                                    <option value="">Pilih Pelanggan</option>
-                                                    <?php
-                                                        foreach ($pelanggan as $keyp => $valp) {
-                                                        ?>
-                                                        <option value="<?=$valp['id_pelanggan']?>"><?=$valp['nama']?></option>
-                                                        <?php
-                                                    }
-                                                ?>
-                                                </select>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="6">
-                                            <a href="#" class="btn btn-primary">Simpan</a>
-                                        </td>
-                                    </tr>
-                                </form>
                             <?php
-                            }    
+                        }    
                         ?>
                     </table>
+                    <form action="/stransaksi" method="post">
+                        <tr>
+                            <td colspan="6">
+                                <div class="form-group">
+                                    <label for="pelanggan" style="display: flex; align-items: center; justify-content: center;">==> Pilih Nama Pelanggan <==</label>
+                                    <select name="pelanggan" id="pelanggan" class="form-control" required>
+                                        <option value="">Pilih Pelanggan</option>
+                                        <?php
+                                            foreach ($pelanggan as $keyp => $valp) {
+                                                ?>
+                                                <option value="<?=$valp['id_pelanggan']?>"><?=$valp['nama']?></option>
+                                                <?php
+                                            }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tanggal">Tanggal Ambil</label>
+                                    <input type="date" name="tanggal" id="tanggal" class="form-control" required> 
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary mt-4">Simpan</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </form>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>

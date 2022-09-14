@@ -65,6 +65,11 @@ $routes->add('/suser', 'User::save');
 $routes->get('/transaksi','Transaksi::tampil');
 $routes->add('/addcart','Transaksi::addcart');
 $routes->get('/transaksi/hapus/(:segment)','Transaksi::hapusCart/$1');
+$routes->add('/stransaksi','Transaksi::simpan');
+
+// Routes for Laporan
+$routes->get('/laporan','Transaksi::laporan');
+$routes->get('/laporan/ambil/(:segment)','Transaksi::ambil/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

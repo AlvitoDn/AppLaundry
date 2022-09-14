@@ -7,10 +7,11 @@ use App\Models\PaketModel;
 use App\Models\PelangganModel;
 use App\Models\DetailModel;
 class Transaksi extends Controller{
-    protected $pelanggans, $pakets, $transaksi, $detail, $session;
+    protected $pelanggans, $pakets, $transaksi, $detail, $session, $db;
     
     function __construct()
     {
+        $this->db = \Config\Database::connect();
         $this->pelanggans = new PelangganModel;
         $this->pakets = new PaketModel;
         $this->transaksi = new TransaksiModel;
@@ -82,5 +83,48 @@ class Transaksi extends Controller{
         unset($cart[$index]);
         $this->session->set('cart',$cart);
         return redirect('transaksi')->with('sukses','data berhasil dihapus');
+    }
+
+    public function simpan()
+    {
+        if(session('cart') !=null){   
+                $datatrans = array(
+                    "id_pelanggan"=>$this->request->getPost('pelanggan'),
+                    'tanggal_masuk'=>date('Y-m-d H:i:s'),
+                    'tanggal_ambil'=>$this->request->getPost('tanggal'),
+                    'id_user'=>$this->session->get('id_user')
+                );
+                $id = $this->transaksi->insert($datatrans);
+                $cart = array_values(session('cart'));
+                foreach ($cart as $val) {
+                    $datadetail = array(
+                        'id_transaksi'=>$id,
+                        'id_paket'=>$val['id_paket'],
+                        'jumlah'=>$val['jumlah']
+                    );
+                }
+                $this->session->remove('cart');
+                return redirect('transaksi')->with('sukses','Transaksi berhasil');
+        }else{
+            return redirect('transaksi')->with('sukses','Transaksi gagal');
+        }
+    }
+
+    public function ambil($id)
+    {
+        $data = array('status'=>1,);
+        $this->transaksi->update($id, $data);
+
+        session()->setFlashdata('message','laundry sudah diambil');
+        return redirect('laporan');
+    }
+
+    public function laporan()
+    {
+        $query = $this->db->query("SELECT a.*,b.* from tbtransaksi a,tbpelanggan b where a.id_pelanggan=b.id_pelanggan");
+        $result = $query->getResultArray();
+        $data['trans'] = $result;
+
+        return view('tampil_laporan',$data);
     }
 }

@@ -32,7 +32,7 @@
     <!-- MENU START -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 bg-secondary">
+            <div class="col-md-2 bg-info">
                 <?=$this->include('component/sidebar.php') ?>
             </div>     
             <div class="col-md-10">
