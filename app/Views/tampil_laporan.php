@@ -6,7 +6,7 @@ Laporan Data Pelanggan
 <div class="container">
     <div class="row">
         <div class="card">
-            <div class="card-header"><h3>Data Transaksi</h3>
+            <div class="card-header bg-success"><h3>Data Transaksi</h3>
             <a href="/transaksi" class="btn btn-primary">Tambahkan transaksi</a>
             </div>
             <div class="card-body">
@@ -108,5 +108,4 @@ Laporan Data Pelanggan
             });
         })
     </script>
-<?=$this->endSection()?>
 <?=$this->endSection()?>

@@ -27,7 +27,7 @@ class LoginController extends Controller{
                     [
                         'username' => $dataUser['username'],
                         'nama' => $dataUser['nama'],
-                        'loged_in' => true, 
+                        'logged_in' => true, 
                         'id_user'=>$dataUser['id_user']
                     ]
                 );

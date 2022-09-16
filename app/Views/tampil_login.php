@@ -11,7 +11,7 @@
     html,
 body {
   height: 100%;
-  background-image: url('assets/mountain.jpg');
+  background-image: url('/assets/mountain.jpg');
   background-size: cover;
 }
 
@@ -76,7 +76,7 @@ body {
     <div class="container">
         <div class="row">
             <div class="form">
-            <img src="assets/ame.gif" alt="ame" class="center">
+            <img src="/assets/ame.gif" alt="ame" class="center">
                 <div class="card">
                     <form action="plogin" method="post">
                         <div class="card-body">
@@ -104,3 +104,5 @@ body {
     </div>
 </body>
 </html>
+<script src="<?=base_url()?>/assets/jquery/jquery-3.6.0.min.js"></script>
+<script src="<?=base_url()?>/assets/js/bootstrap.min.js"></script>

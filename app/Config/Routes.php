@@ -38,38 +38,38 @@ $routes->add('plogin', 'LoginController::login');
 $routes->get('/logout', 'LoginController::logout');
 
 // Routes for Home
-$routes->get('/home','Home::index');
+$routes->get('/home','Home::index',['filter'=>'auth']);
 
 // Routes for Pelanggan 
-$routes->get('/pelanggan', 'Pelanggan::tampil');
-$routes->get('/form', 'Pelanggan::form');
-$routes->add('/spelanggan', 'Pelanggan::save');
-$routes->get('/pelanggan/delete/(:segment)', 'Pelanggan::delete/$1');
-$routes->add('/pelanggan/edit/(:segment)', 'Pelanggan::edit/$1');
+$routes->get('/pelanggan', 'Pelanggan::tampil',['filter'=>'auth']);
+$routes->get('/form', 'Pelanggan::form',['filter'=>'auth']);
+$routes->add('/spelanggan', 'Pelanggan::save',['filter'=>'auth']);
+$routes->get('/pelanggan/delete/(:segment)', 'Pelanggan::delete/$1',['filter'=>'auth']);
+$routes->add('/pelanggan/edit/(:segment)', 'Pelanggan::edit/$1',['filter'=>'auth']);
 
 // Routes for Paket 
-$routes->get('/paket', 'Paket::tampil');
-$routes->get('/fpaket', 'Paket::form');
-$routes->get('/paket/delete/(:segment)', 'Paket::delete/$1');
-$routes->add('/paket/edit/(:segment)', 'Paket::edit/$1');
-$routes->add('/spaket', 'Paket::save');
+$routes->get('/paket', 'Paket::tampil',['filter'=>'auth']);
+$routes->get('/fpaket', 'Paket::form',['filter'=>'auth']);
+$routes->get('/paket/delete/(:segment)', 'Paket::delete/$1',['filter'=>'auth']);
+$routes->add('/paket/edit/(:segment)', 'Paket::edit/$1',['filter'=>'auth']);
+$routes->add('/spaket', 'Paket::save',['filter'=>'auth']);
 
 // Routes for User
-$routes->get('/user', 'User::tampil');
-$routes->get('/fuser', 'User::form');
-$routes->get('/user/delete/(:segment)', 'User::delete/$1');
-$routes->add('/user/edit/(:segment)', 'User::edit/$1');
-$routes->add('/suser', 'User::save');
+$routes->get('/user', 'User::tampil',['filter'=>'auth']);
+$routes->get('/fuser', 'User::form',['filter'=>'auth']);
+$routes->get('/user/delete/(:segment)', 'User::delete/$1',['filter'=>'auth']);
+$routes->add('/user/edit/(:segment)', 'User::edit/$1',['filter'=>'auth']);
+$routes->add('/suser', 'User::save',['filter'=>'auth']);
 
 // Routes for Transaksi
-$routes->get('/transaksi','Transaksi::tampil');
-$routes->add('/addcart','Transaksi::addcart');
-$routes->get('/transaksi/hapus/(:segment)','Transaksi::hapusCart/$1');
-$routes->add('/stransaksi','Transaksi::simpan');
+$routes->get('/transaksi','Transaksi::tampil',['filter'=>'auth']);
+$routes->add('/addcart','Transaksi::addcart',['filter'=>'auth']);
+$routes->get('/transaksi/hapus/(:segment)','Transaksi::hapusCart/$1',['filter'=>'auth']);
+$routes->add('/stransaksi','Transaksi::simpan',['filter'=>'auth']);
 
 // Routes for Laporan
-$routes->get('/laporan','Transaksi::laporan');
-$routes->get('/laporan/ambil/(:segment)','Transaksi::ambil/$1');
+$routes->get('/laporan','Transaksi::laporan',['filter'=>'auth']);
+$routes->get('/laporan/ambil/(:segment)','Transaksi::ambil/$1',['filter'=>'auth']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
