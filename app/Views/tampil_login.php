@@ -11,7 +11,7 @@
     html,
 body {
   height: 100%;
-  background-image: url('/assets/mountain.jpg');
+  background-image: url('/assets/laundry.jpg');
   background-size: cover;
 }
 
@@ -33,7 +33,7 @@ body {
  background-color:  transparent;
 }
 
-.center{
+img{
     padding: auto; 
     margin: auto;
     margin-bottom: 20px;
@@ -48,7 +48,7 @@ body {
   width: 100%;
   max-width: 330px;
   padding: 15px;
-  margin: auto;
+  margin: auto; 
 }
 
 .form input[type="text"] {
@@ -76,7 +76,7 @@ body {
     <div class="container">
         <div class="row">
             <div class="form">
-            <img src="/assets/ame.gif" alt="ame" class="center">
+            <img src="/assets/ame.gif" alt="ame">
                 <div class="card">
                     <form action="plogin" method="post">
                         <div class="card-body">
@@ -90,7 +90,7 @@ body {
                             </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary" style="margin-right: 5px;">Login</button>
-                            <button type="close" class="btn btn-secondary">Close</button>
+                            <button type="close" class="btn btn-">Close</button>
                         </div>
                     </form>   
                 </div>

@@ -8,7 +8,7 @@ Transaksi
         <div class="col-md-5">
             <!-- Form Input -->
             <div class="card">
-                <div class="card-header bg-info">Input data</div>
+                <div class="card-header bg-success">Input data</div>
                 <div class="card-body">
                     <form action="/addcart" method="post">
                         <div class="form-group">
@@ -39,7 +39,7 @@ Transaksi
         <div class="col-md-5">
             <!-- Tampil data -->
             <div class="card">
-                <div class="card-header bg-info">Data Pesanan</div>
+                <div class="card-header bg-success">Data Pesanan</div>
                 <div class="card-body">
                     <table class="table table-bordered table-striped">
                         <tr>

@@ -27,6 +27,7 @@ class LoginController extends Controller{
                     [
                         'username' => $dataUser['username'],
                         'nama' => $dataUser['nama'],
+                        'hak_akses'=>$dataUser['hak_akses'],
                         'logged_in' => true, 
                         'id_user'=>$dataUser['id_user']
                     ]

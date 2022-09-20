@@ -88,9 +88,10 @@ class Transaksi extends Controller{
     public function simpan()
     {
         if(session('cart') !=null){   
+            if ($this->session->get('id_user') != null) {
                 $datatrans = array(
                     "id_pelanggan"=>$this->request->getPost('pelanggan'),
-                    'tanggal_masuk'=>date('Y-m-d H:i:s'),
+                    'tanggal_masuk'=>date('Y/m/d H:i:s'),
                     'tanggal_ambil'=>$this->request->getPost('tanggal'),
                     'id_user'=>$this->session->get('id_user')
                 );
@@ -102,9 +103,13 @@ class Transaksi extends Controller{
                         'id_paket'=>$val['id_paket'],
                         'jumlah'=>$val['jumlah']
                     );
+                    $this->detail->insert($datadetail);
                 }
                 $this->session->remove('cart');
                 return redirect('transaksi')->with('sukses','Transaksi berhasil');
+            }else{
+                return redirect('transaksi')->with('sukses','Transaksi Gagal silahkan login dahulu');
+            }
         }else{
             return redirect('transaksi')->with('sukses','Transaksi gagal');
         }
@@ -126,5 +131,25 @@ class Transaksi extends Controller{
         $data['trans'] = $result;
 
         return view('tampil_laporan',$data);
+    }
+
+    public function detail($id)
+    {
+        $query = $this->db->query("SELECT a.*,b.* FROM tbdetail a, tbpaket b WHERE a.id_paket and a.id_paket and a.id_transaksi=$id");
+        $result = $query->getResultArray();
+        $no=1;
+        $data='<tr>
+        <th>NO.</th>
+        <th>Nama Paket</th>
+        <th>Harga</th>
+        <th>Jumlah</th>
+        <th>Subtotal</th>
+    </tr>';
+        foreach ($result as $value) {
+            $data = $data."<tr><td>".$no."</td><td>".$value['nama_paket']."</td><td>".$value['harga']."</td><td>".$value['jumlah']."</td><td>".$value['jumlah']*$value['harga']."</td></tr>";
+        $no++;
+        }
+
+        echo $data;
     }
 }

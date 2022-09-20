@@ -21,7 +21,7 @@
                         <a href="/Home" class="nav-link active">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/" class="nav-link active">DAFTAR</a>
+                        <a href="/login" class="nav-link active">LOGIN</a>
                     </li>
                 </ul>
             </div>
@@ -32,7 +32,7 @@
     <!-- MENU START -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-2 bg-info">
+            <div class="col-md-2 bg-dark">
                 <?=$this->include('component/sidebar.php') ?>
             </div>     
             <div class="col-md-10">

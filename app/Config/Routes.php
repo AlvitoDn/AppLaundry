@@ -66,6 +66,8 @@ $routes->get('/transaksi','Transaksi::tampil',['filter'=>'auth']);
 $routes->add('/addcart','Transaksi::addcart',['filter'=>'auth']);
 $routes->get('/transaksi/hapus/(:segment)','Transaksi::hapusCart/$1',['filter'=>'auth']);
 $routes->add('/stransaksi','Transaksi::simpan',['filter'=>'auth']);
+$routes->get('/transaksi/detail/(:segment)','Transaksi::detail/$1');
+
 
 // Routes for Laporan
 $routes->get('/laporan','Transaksi::laporan',['filter'=>'auth']);
